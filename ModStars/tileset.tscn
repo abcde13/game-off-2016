@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://test_tileset..tex" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="block" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 0, 100, 100 )
+
+[node name="ramp_up" type="Sprite" parent="."]
+
+transform/pos = Vector2( 270, 190 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 200, 0, 100, 100 )
+
+[node name="ramp_down" type="Sprite" parent="."]
+
+transform/pos = Vector2( 150, -70 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 400, 0, 100, 100 )
+
+
