@@ -1,0 +1,103 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://gun_editor_gui.tex" type="Texture" id=1]
+[ext_resource path="res://gBot_arm_l.tex" type="Texture" id=2]
+[ext_resource path="res://gBot_foot_r.tex" type="Texture" id=3]
+[ext_resource path="res://gBot_foot_l.tex" type="Texture" id=4]
+
+[node name="VBoxContainer" type="HBoxContainer"]
+
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1585.0
+margin/bottom = 739.0
+alignment = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1425.0
+margin/bottom = 739.0
+alignment = 0
+
+[node name="TextureFrame" type="TextureFrame" parent="VBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1425.0
+margin/bottom = 739.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="VBoxContainer 2" type="VBoxContainer" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1429.0
+margin/top = 0.0
+margin/right = 1585.0
+margin/bottom = 739.0
+alignment = 0
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer 2"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 156.0
+margin/bottom = 174.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 2 )
+
+[node name="TextureButton1" type="TextureButton" parent="VBoxContainer 2"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 178.0
+margin/right = 156.0
+margin/bottom = 267.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+textures/hover = ExtResource( 4 )
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer 2"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 271.0
+margin/right = 156.0
+margin/bottom = 271.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+
+
