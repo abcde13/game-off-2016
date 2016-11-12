@@ -23,7 +23,7 @@ func _input_event(event):
 		var attch = Sprite.new()
 		attch.set_texture(get_node("attachments_window/" + mode).get_normal_texture())
 		attch.set_pos(event.pos)
-		add_child(attch)
+		zadd_child(attch)
 		print("HELLO")
 
 func _on_attachment_change(mode):

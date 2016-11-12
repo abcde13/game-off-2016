@@ -421,36 +421,36 @@ tracks/49/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "upda
 
 transform/pos = Vector2( 86.2225, -156.323 )
 transform/rot = -14.4355
+transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 1 )
 offset = Vector2( 20.4077, 31.5428 )
 
 [node name="hand_l" type="Sprite" parent="."]
 
-transform/pos = Vector2( 66.4754, -49.8815 )
+transform/pos = Vector2( 66.4755, -49.8819 )
 transform/rot = -7.56123
 texture = ExtResource( 2 )
 offset = Vector2( 17.6423, 64.6881 )
 
 [node name="leg_l" type="Sprite" parent="."]
 
-transform/pos = Vector2( 40.8027, -5.53727 )
+transform/pos = Vector2( 40.8026, -5.53727 )
 transform/rot = 38.5702
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 3 )
 offset = Vector2( -34.6865, 60.9438 )
 
 [node name="shin_l" type="Sprite" parent="."]
 
-transform/pos = Vector2( 70.6768, 103.125 )
-transform/rot = -0.960834
+transform/pos = Vector2( 70.6765, 103.125 )
+transform/rot = -0.960899
 transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 4 )
 offset = Vector2( 20.0986, 51.3568 )
 
 [node name="foot_l" type="Sprite" parent="."]
 
-transform/pos = Vector2( 77.6691, 231.693 )
-transform/rot = 0.330225
+transform/pos = Vector2( 77.6687, 231.693 )
+transform/rot = 0.330161
 transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 5 )
 offset = Vector2( 43.6785, 3.7847 )
@@ -481,7 +481,6 @@ __meta__ = { "_edit_bone_":true }
 
 transform/pos = Vector2( -11.0222, 116.217 )
 transform/rot = 2.16179
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 9 )
 offset = Vector2( 50.782, 9.79683 )
 __meta__ = { "_edit_bone_":true }
@@ -495,7 +494,6 @@ __meta__ = { "_edit_bone_":true }
 
 transform/pos = Vector2( 29.4962, -6.43977 )
 transform/rot = 38.5702
-transform/scale = Vector2( 1, 1 )
 remote_path = NodePath("../../leg_l")
 __meta__ = { "_edit_bone_":true, "_edit_ik_":true }
 
@@ -503,7 +501,6 @@ __meta__ = { "_edit_bone_":true, "_edit_ik_":true }
 
 transform/pos = Vector2( -44.3915, 103.583 )
 transform/rot = -39.5311
-transform/scale = Vector2( 1, 1 )
 remote_path = NodePath("../../../shin_l")
 __meta__ = { "_edit_bone_":true }
 
@@ -511,7 +508,6 @@ __meta__ = { "_edit_bone_":true }
 
 transform/pos = Vector2( 9.14728, 128.432 )
 transform/rot = 1.29106
-transform/scale = Vector2( 1, 1 )
 remote_path = NodePath("../../../../foot_l")
 __meta__ = { "_edit_bone_":true }
 
@@ -562,7 +558,6 @@ __meta__ = { "_edit_bone_":true, "_edit_ik_":true }
 
 transform/pos = Vector2( -31.5656, 94.1811 )
 transform/rot = 16.9186
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 14 )
 offset = Vector2( 10.6937, 74.8991 )
 __meta__ = { "_edit_bone_":true }
