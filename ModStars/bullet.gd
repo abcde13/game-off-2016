@@ -14,6 +14,5 @@ func _fixed_process(delta):
 	time += delta
 	move(Vector2(delta * 1000,0))
 	if(is_colliding() || time > 0.5):
-		print("colliding")
 		free()
 
