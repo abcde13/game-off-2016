@@ -1,17 +1,24 @@
-extends PanelContainer
+extends  Control
 
 var mode
 var current_mode_tex
+var attch
+var attch_collision
+var attch_area
+var gun_base
+var attachment = preload("res://test_area_scene.tscn")
 
 func _ready():
-	get_node("gun/gun_base").add_shape(
+	gun_base = get_node("gun_base")
+	set_process(true)
+	
+func _process(delta):
+	update()
 
 func _test_gun_overlap(new_piece):
-	var gun_base_area = get_node("gun_base_area")
-	print(gun_base_area.show())
-	print(new_piece.show())
-	print(gun_base_area.overlaps_body(new_piece))
-	gun_base_area.overlaps_area(new_piece)
+	print(gun_base.get_overlapping_areas())
+	return new_piece.overlaps_area(gun_base)
+	
 
 func _on_attachment_change(mode):
 	self.mode = mode
@@ -20,13 +27,23 @@ func _on_attachment_change(mode):
 	
 func _input_event(event):
 	if (event.type == InputEvent.MOUSE_BUTTON and event.pressed):
+		accept_event()
 		if (mode):
-			var attch = Sprite.new()
-			attch.set_texture(current_mode_tex)
-			var attch_area = Area2D.new()
-			attch_area.add_child(attch)
-			attch_area.set_pos(event.pos)
-			add_child(attch_area)
-			if (!_test_gun_overlap(attch_area)):
-				attch_area.free()
-				print("HELLO")
+			var new_attachment = attachment.instance()
+			new_attachment.get_node("Sprite").set_texture(current_mode_tex)
+			var shape = RectangleShape2D.new()
+			shape.set_extents(current_mode_tex.get_size()/2)
+			new_attachment.add_shape(shape)
+			new_attachment.translate(event.pos)
+			
+
+		
+			add_child(new_attachment)
+			if(!new_attachment.get_shape(0).collide(new_attachment.get_transform(), gun_base.get_shape(0), gun_base.get_transform())):
+				new_attachment.free()
+			
+				
+
+				
+func _on_mouse_enter():
+	print("ENTERING")
