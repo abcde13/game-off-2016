@@ -417,6 +417,8 @@ tracks/49/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "upda
 
 [node name="root" type="Node2D"]
 
+editor/display_folded = true
+
 [node name="arm_l" type="Sprite" parent="."]
 
 transform/pos = Vector2( 86.2225, -156.323 )

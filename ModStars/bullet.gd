@@ -6,13 +6,19 @@ extends KinematicBody2D
 # var b="textvar"
 
 var time = 0
+var dir = 1;
+	
+func set_dir(direction):
+	if(!direction):
+		dir = -1
 
 func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
 	time += delta
-	move(Vector2(delta * 1000,0))
+
+	move(Vector2(delta * 1000 * dir,0))
 	if(is_colliding() || time > 0.5):
 		free()
 
