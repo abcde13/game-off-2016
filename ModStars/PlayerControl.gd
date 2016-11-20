@@ -11,12 +11,13 @@ var jumping = false
 
 var player_node
 var player_animation
-var time = 0;
+var time = 0
 var idle = false
 var bullet = preload("res://Bullet.tscn")
 var debounce_fire = 0
-var cooldown_timer = 0;
-var facing_right = true;
+var cooldown_timer = 0
+var facing_right = true
+var health = 5
 
 func _fixed_process(delta):
 	cooldown_timer += delta
@@ -68,10 +69,12 @@ func _fixed_process(delta):
 	motion = move(motion)
 	if (is_colliding()):
 		var n = get_collision_normal()
+		if(get_global_pos().y - get_collision_pos().y < -40):
+			jumping = false;
 		motion = n.slide(motion)
 		velocity = n.slide(velocity)
 		move(motion)
-		jumping = false;
+		
 
 
 
@@ -80,4 +83,7 @@ func _ready():
 	player_node = get_node("Player")
 	player_animation = get_node("Player/AnimationPlayer")
 
-
+func hit():
+	health = health-1;
+	if(health <= 0):
+		queue_free()

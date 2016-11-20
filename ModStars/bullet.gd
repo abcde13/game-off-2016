@@ -20,5 +20,8 @@ func _fixed_process(delta):
 
 	move(Vector2(delta * 1000 * dir,0))
 	if(is_colliding() || time > 0.5):
-		free()
+		var object_hit = get_collider()
+		if(object_hit != null && object_hit.has_method("hit")):
+			object_hit.hit()
+		queue_free()
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://AI.tscn" type="PackedScene" id=3]
 
-[node name="Node2D" type="Node2D"]
+[node name="Level" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 
@@ -21,14 +22,15 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( -655349, 0, -524279, 0, -393212, 0, -393211, 0, -393210, 0, -393209, 0, -327678, 0, -327666, 0, -327665, 0, -262143, 0, -196599, 1, -196598, 0, -196597, 2, -131064, 1, -131063, 0, -131062, 0, -131061, 0, -131060, 2, -1, 0, -65536, 0, -65535, 0, -65534, 0, -65533, 0, -65532, 0, -65531, 0, -65530, 0, -65529, 0, -65528, 0, -65527, 0, -65526, 0, -65525, 0, -65524, 0, -65523, 0, -65522, 0, -65521, 0, -65520, 0, 65535, 0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0 )
+tile_data = IntArray( -655349, 0, -524279, 0, -393212, 0, -393211, 0, -393210, 0, -393209, 0, -327678, 0, -327666, 0, -327665, 0, -262143, 0, -196599, 1, -196598, 0, -196597, 2, -131064, 1, -131063, 0, -131062, 0, -131061, 0, -131060, 2, -131051, 1, -131050, 0, -1, 0, -65536, 0, -65535, 0, -65534, 0, -65533, 0, -65532, 0, -65531, 0, -65530, 0, -65529, 0, -65528, 0, -65527, 0, -65526, 0, -65525, 0, -65524, 0, -65523, 0, -65522, 0, -65521, 0, -65520, 0, -65519, 0, -65518, 0, -65517, 0, -65516, 0, -65515, 0, -65514, 0, 65535, 0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0 )
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
+[node name="Player" parent="." instance=ExtResource( 2 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 409.6, -318.4 )
 transform/scale = Vector2( 0.2, 0.2 )
 
-[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 
 anchor_mode = 1
 rotating = false
@@ -46,5 +48,10 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
+
+[node name="AI" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1332.16, -139.279 )
+transform/scale = Vector2( 0.5, 0.5 )
 
 
