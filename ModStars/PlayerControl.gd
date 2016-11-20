@@ -9,13 +9,15 @@ var velocity = Vector2()
 
 var jumping = false
 
-var sprite
+var player_node
 var player_animation
-var time = 0;
+var time = 0
 var idle = false
 var bullet = preload("res://Bullet.tscn")
 var debounce_fire = 0
-var cooldown_timer = 0;
+var cooldown_timer = 0
+var facing_right = true
+var health = 5
 
 func _fixed_process(delta):
 	cooldown_timer += delta
@@ -28,8 +30,15 @@ func _fixed_process(delta):
 		velocity.x = 0
 	if (Input.is_action_pressed("btn_left")):
 		velocity.x = - WALK_SPEED
+		if (facing_right):
+			facing_right = false;
+			player_node.set_scale(Vector2(-1,1))
+
 	if (Input.is_action_pressed("btn_right")):
 		velocity.x =   WALK_SPEED
+		if (!facing_right):
+			facing_right = true;
+			player_node.set_scale(Vector2(1,1))
 	if (Input.is_action_pressed("jump") && not jumping):
 		velocity.y = JUMP_SPEED
 		jumping = true
@@ -38,9 +47,13 @@ func _fixed_process(delta):
 			debounce_fire += 1
 			if(debounce_fire == 6):
 				var b = bullet.instance()
+				b.set_dir(facing_right)
 				var pos = get_global_pos()
 				b.set_pos(pos)
-				b.move_local_x(100)
+				if(facing_right):
+					b.move_local_x(100)
+				else:
+					b.move_local_x(-100)
 				get_parent().add_child(b)
 				debounce_fire = 0
 				cooldown_timer = 0
@@ -56,17 +69,21 @@ func _fixed_process(delta):
 	motion = move(motion)
 	if (is_colliding()):
 		var n = get_collision_normal()
+		if(get_global_pos().y - get_collision_pos().y < -40):
+			jumping = false;
 		motion = n.slide(motion)
 		velocity = n.slide(velocity)
 		move(motion)
-		jumping = false;
+		
 
 
 
 func _ready():
 	set_fixed_process(true)
-	#sprite = get_node("Sprite")
-	player_animation = get_node("root/AnimationPlayer")
+	player_node = get_node("Player")
+	player_animation = get_node("Player/AnimationPlayer")
 
-
-
+func hit():
+	health = health-1;
+	if(health <= 0):
+		queue_free()
