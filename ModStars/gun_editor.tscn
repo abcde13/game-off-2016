@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://editor_window.tres.gd" type="Script" id=1]
 [ext_resource path="res://gun.tscn" type="PackedScene" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://gBot_foot_r.tex" type="Texture" id=5]
 [ext_resource path="res://gBot_foot_l.tex" type="Texture" id=6]
 [ext_resource path="res://gBot_shin_r.tex" type="Texture" id=7]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Button\n\nsignal next_level\n\nfunc _ready():\n\tconnect(\"next_level\", get_parent().get_parent().get_node(\"editor_window\"), \"next_level\")\n\t\nfunc _pressed():\n\temit_signal(\"next_level\")"
 
 [node name="MainContainer" type="HBoxContainer"]
 
@@ -35,7 +39,7 @@ script/script = ExtResource( 1 )
 
 [node name="gun" parent="editor_window" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 378.637, 349.163 )
+transform/pos = Vector2( 472.3, 349.2 )
 
 [node name="attachments_window" type="VBoxContainer" parent="."]
 
@@ -97,5 +101,22 @@ enabled_focus_mode = 2
 shortcut = null
 textures/normal = ExtResource( 7 )
 script/script = ExtResource( 4 )
+
+[node name="Button" type="Button" parent="attachments_window"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 432.0
+margin/right = 156.0
+margin/bottom = 452.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "GO"
+flat = false
+script/script = SubResource( 1 )
 
 

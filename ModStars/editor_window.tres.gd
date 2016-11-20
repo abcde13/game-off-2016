@@ -23,7 +23,7 @@ func _on_attachment_change(mode):
 	
 func _fixed_process(delta):
 	update()
-	if(current_attachment):
+	if(current_attachment and current_attachment.get_node("Sprite")):
 		do_input()
 		var invalid = true	
 		for child in gun.get_children():
@@ -34,8 +34,17 @@ func _fixed_process(delta):
 				
 		if (invalid):
 			current_attachment.get_node("Sprite").set_modulate(Color(1.9,0.8,0.8,1))
+			self.invalid = true
 		else:
 			current_attachment.get_node("Sprite").set_modulate(Color(1,1,1,1))
+			self.invalid = false
+		
+	if (invalid):
+		self.invalid
+	if (self.invalid):
+		get_parent().get_node("attachments_window/Button").set_disabled(true)
+	else:
+		get_parent().get_node("attachments_window/Button").set_disabled(false)
 	
 func do_input():
 	if (Input.is_action_pressed("SHIFT_UP")):
@@ -70,7 +79,6 @@ func do_input():
 		edit_mode = "ZOOM"
 			
 func _input_event(event):
-	print(event)
 	if (event.type == InputEvent.MOUSE_BUTTON and event.pressed and mode):
 		accept_event()
 		var new_attachment = create_and_place_attachment(event.pos)
@@ -86,9 +94,16 @@ func _input_event(event):
 	
 func create_and_place_attachment(mouse_place):
 	var new_attachment = attachment.instance()
-	new_attachment.get_node("Sprite").set_texture(current_mode_tex)
-	new_attachment.get_shape(0).set_extents(current_mode_tex.get_size()/2)
-	get_node("gun").add_child(new_attachment)
+	var attach_sprite = Sprite.new()
+	attach_sprite.set_texture(current_mode_tex)
+	new_attachment.add_child(attach_sprite)
+	attach_sprite.set_owner(new_attachment)
+	attach_sprite.set_name("Sprite")
+	var shape = RectangleShape2D.new()
+	shape.set_extents(current_mode_tex.get_size()/2)
+	new_attachment.add_shape(shape)
+	gun.add_child(new_attachment)
+	new_attachment.set_owner(gun)	
 	new_attachment.set_pickable(true)
 	new_attachment.set_monitorable(true)
 	new_attachment.set_enable_monitoring(true)
@@ -97,7 +112,7 @@ func create_and_place_attachment(mouse_place):
 	return new_attachment
 			
 				
-func select_attachment(viewport, event, shape_id):
+func select_attachment(cam, event, click_pos, click_normal, shape):
 	print("selected")
 
 				
@@ -106,3 +121,9 @@ func _on_mouse_enter():
 	
 func _draw():
 	VisualServer.canvas_item_set_clip(get_canvas_item(),true)
+	
+func next_level():
+	var packed_scene = PackedScene.new()
+	packed_scene.pack(gun)
+	ResourceSaver.save("res://gun_new.tscn", packed_scene)
+	get_tree().change_scene("res://tilemap.tscn")

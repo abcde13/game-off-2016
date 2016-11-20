@@ -65,7 +65,8 @@ func _fixed_process(delta):
 
 func _ready():
 	set_fixed_process(true)
-	sprite = get_node("Sprite")
+	#sprite = get_node("Sprite")
 	player_animation = get_node("root/AnimationPlayer")
+
 
 
