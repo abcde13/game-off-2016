@@ -81,6 +81,9 @@ func _fixed_process(delta):
 func _ready():
 	set_fixed_process(true)
 	player_node = get_node("Player")
+	var gun = load("res://gun_new.tscn").instance()
+	self.add_child(gun)
+	gun.scale(Vector2(3,3))
 	player_animation = get_node("Player/AnimationPlayer")
 
 func hit():
