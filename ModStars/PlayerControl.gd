@@ -12,7 +12,7 @@ var jumping = false
 var player_node
 var player_animation
 var time = 0
-var idle = false
+var idle = true
 var bullet = preload("res://Bullet.tscn")
 var debounce_fire = 0
 var cooldown_timer = 0
@@ -33,12 +33,12 @@ func _fixed_process(delta):
 		if (facing_right):
 			facing_right = false;
 			player_node.set_scale(Vector2(-1,1))
-
 	if (Input.is_action_pressed("btn_right")):
 		velocity.x =   WALK_SPEED
 		if (!facing_right):
 			facing_right = true;
 			player_node.set_scale(Vector2(1,1))
+
 	if (Input.is_action_pressed("jump") && not jumping):
 		velocity.y = JUMP_SPEED
 		jumping = true
@@ -60,11 +60,13 @@ func _fixed_process(delta):
 		
 	if(velocity.x != 0 || jumping):
 		idle = false
-		if(player_animation.get_current_animation() == "Idle"):
-			player_animation.play("Rest")
+		if(player_animation.get_current_animation() == "Idle" || player_animation.get_current_animation() == "Rest"):
+			player_animation.play("run")
 		else:
 			idle = true
-	
+	elif (velocity.x == 0): 
+		if(player_animation.get_current_animation() != "Idle"):
+			player_animation.play("Rest")
 	var motion = velocity * delta
 	motion = move(motion)
 	if (is_colliding()):
