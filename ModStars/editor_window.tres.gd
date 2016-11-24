@@ -112,6 +112,7 @@ func _draw():
 	
 func next_level():
 	var packed_scene = PackedScene.new()
+	gun.set_scale(Vector2(1,1))
 	packed_scene.pack(gun)
 	print(ResourceSaver.save("res://gun_new.tscn", packed_scene))
 	get_tree().change_scene("res://tilemap.tscn")
