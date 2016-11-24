@@ -12,12 +12,14 @@ var jumping = false
 var player_node
 var player_animation
 var time = 0
-var idle = false
+var idle = true
 var bullet = preload("res://Bullet.tscn")
+var barrel = preload("res://barrel.gd")
 var debounce_fire = 0
 var cooldown_timer = 0
 var facing_right = true
 var health = 5
+var gun
 
 func _fixed_process(delta):
 	cooldown_timer += delta
@@ -33,12 +35,12 @@ func _fixed_process(delta):
 		if (facing_right):
 			facing_right = false;
 			player_node.set_scale(Vector2(-1,1))
-
 	if (Input.is_action_pressed("btn_right")):
 		velocity.x =   WALK_SPEED
 		if (!facing_right):
 			facing_right = true;
 			player_node.set_scale(Vector2(1,1))
+
 	if (Input.is_action_pressed("jump") && not jumping):
 		velocity.y = JUMP_SPEED
 		jumping = true
@@ -46,25 +48,36 @@ func _fixed_process(delta):
 		if(cooldown_timer > COOLDOWN):
 			debounce_fire += 1
 			if(debounce_fire == 6):
-				var b = bullet.instance()
-				b.set_dir(facing_right)
-				var pos = get_global_pos()
-				b.set_pos(pos)
-				if(facing_right):
-					b.move_local_x(100)
-				else:
-					b.move_local_x(-100)
-				get_parent().add_child(b)
-				debounce_fire = 0
-				cooldown_timer = 0
+				for brl in gun.get_children():
+					if (brl extends barrel):
+						var b = bullet.instance()
+						
+						b.set_dir(facing_right)
+						
+						var pos = brl.get_global_pos()
+						print(b.get_rot())
+						print(cos(b.get_rot())* 100)
+						print(sin(b.get_rot()) * 100)
+						get_parent().add_child(b)
+						if(facing_right):
+							b.set_rot(brl.get_rot())
+							b.set_pos(Vector2(pos[0] + cos(b.get_rot()) * 100, pos[1] + sin(b.get_rot())*-100))
+						else:
+							b.set_rot(2*PI - brl.get_rot())
+							b.set_pos(Vector2(pos[0] + cos(b.get_rot()) * -100, pos[1] + sin(b.get_rot())*100))
+						#get_parent().add_child(b)
+						debounce_fire = 0
+						cooldown_timer = 0
 		
 	if(velocity.x != 0 || jumping):
 		idle = false
-		if(player_animation.get_current_animation() == "Idle"):
-			player_animation.play("Rest")
+		if(player_animation.get_current_animation() == "Idle" || player_animation.get_current_animation() == "Rest"):
+			player_animation.play("run")
 		else:
 			idle = true
-	
+	elif (velocity.x == 0): 
+		if(player_animation.get_current_animation() != "Idle"):
+			player_animation.play("Rest")
 	var motion = velocity * delta
 	motion = move(motion)
 	if (is_colliding()):
@@ -81,6 +94,10 @@ func _fixed_process(delta):
 func _ready():
 	set_fixed_process(true)
 	player_node = get_node("Player")
+	gun = load("res://gun.tscn").instance()
+	player_node.add_child(gun)
+	gun.translate(Vector2(80,0))
+	gun.scale(Vector2(1.5,1.5))
 	player_animation = get_node("Player/AnimationPlayer")
 
 func hit():

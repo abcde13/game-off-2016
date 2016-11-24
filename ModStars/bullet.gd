@@ -18,7 +18,7 @@ func _ready():
 func _fixed_process(delta):
 	time += delta
 
-	move(Vector2(delta * 1000 * dir,0))
+	move(Vector2(cos(get_rot()) * delta * 1000 * dir, sin(get_rot()) * delta * 1000 * -dir))
 	if(is_colliding() || time > 0.5):
 		var object_hit = get_collider()
 		if(object_hit != null && object_hit.has_method("hit")):
