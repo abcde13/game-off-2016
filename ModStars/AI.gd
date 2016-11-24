@@ -116,6 +116,7 @@ func fire():
 				b.set_pos(Vector2(pos[0] + cos(b.get_rot()) * 100, pos[1] + sin(b.get_rot())*-100))
 			else:
 				b.set_rot(2*PI - brl.get_rot())
+				b.scale(Vector2(-1,1))
 				b.set_pos(Vector2(pos[0] + cos(b.get_rot()) * -100, pos[1] + sin(b.get_rot())*100))
 			#get_parent().add_child(b)
 	

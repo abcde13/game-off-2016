@@ -7,6 +7,7 @@ extends KinematicBody2D
 
 var time = 0
 var dir = 1;
+var sprite
 	
 func set_dir(direction):
 	if(!direction):
@@ -14,7 +15,8 @@ func set_dir(direction):
 
 func _ready():
 	set_fixed_process(true)
-
+	sprite = get_node("Sprite")
+	
 func _fixed_process(delta):
 	time += delta
 
@@ -24,4 +26,8 @@ func _fixed_process(delta):
 		if(object_hit != null && object_hit.has_method("hit")):
 			object_hit.hit()
 		queue_free()
+		
+		
+		
+		
 
