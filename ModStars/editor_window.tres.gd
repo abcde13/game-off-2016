@@ -1,6 +1,6 @@
-extends  Control
+extends  Container
 
-var mode
+var done = false
 var current_mode_tex
 var gun_base
 var gun
@@ -16,10 +16,6 @@ func _ready():
 	gun_base.connect("input_event", self, "select_attachment")
 	set_process(true)
 
-func _on_attachment_change(mode):
-	self.mode = mode
-	current_mode_tex = get_parent().get_node("attachments_window/" + mode).get_normal_texture()
-	print(mode)
 	
 func _process(delta):
 	update()
@@ -79,14 +75,15 @@ func do_input():
 		edit_mode = "ZOOM"
 			
 func _input_event(event):
-	if (event.type == InputEvent.MOUSE_BUTTON and event.pressed and mode):
+	if (event.type == InputEvent.MOUSE_BUTTON and event.pressed and !done):
 		accept_event()
+		
 		var new_attachment = create_and_place_attachment(event.pos)
 		
 		if(!new_attachment.get_shape(0).collide(new_attachment.get_transform(), gun_base.get_shape(0), gun_base.get_transform())):
 				new_attachment.free()
 		else:
-			mode = null
+			done = true
 			edit_mode = "MOVE"
 			current_attachment = new_attachment
 			new_attachments.append(new_attachment)
