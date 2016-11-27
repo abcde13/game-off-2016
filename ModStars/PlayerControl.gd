@@ -97,7 +97,8 @@ func _ready():
 	player_node = get_node("Player")
 	gun = load("res://gun.tscn").instance()
 	player_node.add_child(gun)
-	gun.translate(Vector2(150,-100))
+	gun.set_pos(Vector2(0,0))
+	gun.translate(Vector2(80,0))
 	gun.scale(Vector2(1,1))
 	player_animation = get_node("Player/AnimationPlayer")
 
@@ -105,3 +106,6 @@ func hit():
 	health = health-1;
 	if(health <= 0):
 		queue_free()
+
+func get_name():
+	return "player"

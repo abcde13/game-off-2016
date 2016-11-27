@@ -28,8 +28,9 @@ func _ready():
 	body_sprite = get_node("Body")
 	gun = load("res://gun.tscn").instance()
 	body_sprite.add_child(gun)
+	gun.set_pos(Vector2(0,0))
 	gun.translate(Vector2(80,0))
-	gun.scale(Vector2(.75,.75))
+	gun.scale(Vector2(.5,.5))
 	
 
 	

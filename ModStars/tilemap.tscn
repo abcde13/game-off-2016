@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=1]
 
-[ext_resource path="res://Level1.gd" type="Script" id=1]
+[ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://backgrounds/layer_07_1920 x 1080.tex" type="Texture" id=2]
 [ext_resource path="res://backgrounds/layer_06_1920 x 1080.tex" type="Texture" id=3]
 [ext_resource path="res://backgrounds/layer_05_1920 x 1080.tex" type="Texture" id=4]
@@ -8,6 +8,7 @@
 [ext_resource path="res://tileset.tres" type="TileSet" id=6]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://AI.tscn" type="PackedScene" id=8]
+
 
 [node name="Level" type="Node2D"]
 

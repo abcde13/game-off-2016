@@ -5,9 +5,22 @@ extends Node2D
 # var a=2
 # var b="textvar"
 
+var ai_count;
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	pass
+	ai_count = get_node("AI_Group").get_child_count()
+	set_process(true);
+	
+	
+func _process(delta):
+	
+	ai_count = get_node("AI_Group").get_child_count()
+	
+	if(ai_count == 0):
+		global.level = global.level+1
+		print(global.level)
+		get_tree().change_scene("gun_editor.tscn")
 
 

@@ -21,11 +21,18 @@ func _fixed_process(delta):
 	time += delta
 
 	move(Vector2(cos(get_rot()) * delta * 1000 * dir, sin(get_rot()) * delta * 1000 * -dir))
-	if(is_colliding() || time > 0.5):
+	if(is_colliding()):
 		var object_hit = get_collider()
-		if(object_hit != null && object_hit.has_method("hit")):
-			object_hit.hit()
+		if(object_hit != null):
+			if(object_hit.has_method("hit")):
+				object_hit.hit()
+			if(!object_hit.has_method("get_name")  || object_hit.get_name() != "bullet"):
+				queue_free()
+	if(time > 0.5):
 		queue_free()
+		
+func get_name():
+	return "bullet"
 		
 		
 		

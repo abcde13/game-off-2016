@@ -92,6 +92,7 @@ func _input_event(event):
 func create_and_place_attachment(mouse_place):
 	var new_attachment = barrel.instance()
 	gun.add_child(new_attachment)
+	new_attachment.set_owner(gun)
 	new_attachment.connect("input_event", self, "select_attachment")
 	new_attachment.translate(mouse_place - new_attachment.get_parent().get_pos())
 	return new_attachment
@@ -111,5 +112,5 @@ func next_level():
 	var packed_scene = PackedScene.new()
 	gun.set_scale(Vector2(1,1))
 	packed_scene.pack(gun)
-	print(ResourceSaver.save("res://gun_new.tscn", packed_scene))
+	ResourceSaver.save("res://gun.tscn", packed_scene)
 	get_tree().change_scene("res://tilemap.tscn")
