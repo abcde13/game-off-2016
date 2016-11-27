@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://editor_window.tres.gd" type="Script" id=1]
 [ext_resource path="res://gun.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Gasalt-Black.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://Gasalt-Black2.fnt" type="BitmapFont" id=4]
 
 [sub_resource type="GDScript" id=1]
 
@@ -45,10 +46,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 1
 size_flags/vertical = 1
-margin/left = 233.0
-margin/top = 44.0
-margin/right = 1359.0
-margin/bottom = 70.0
+margin/left = 79.0
+margin/top = 49.0
+margin/right = 1418.0
+margin/bottom = 84.0
 custom_fonts/font = ExtResource( 3 )
 text = "Click on handle to place new barrel. M to move, R to rotate, Z to zoom + arrow keys"
 align = 1
@@ -81,6 +82,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 243.0
 margin/bottom = 753.0
+custom_fonts/font = ExtResource( 4 )
 custom_constants/hseparation = 0
 toggle_mode = false
 enabled_focus_mode = 2

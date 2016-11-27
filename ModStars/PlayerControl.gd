@@ -61,11 +61,11 @@ func _fixed_process(delta):
 						get_parent().add_child(b)
 						if(facing_right):
 							b.set_rot(brl.get_rot())
-							b.set_pos(Vector2(pos[0] + cos(b.get_rot()) * 100, pos[1] + sin(b.get_rot())*-100))
+							b.set_pos(Vector2(pos[0] + cos(b.get_rot()) * 120, pos[1] + sin(b.get_rot())*-120))
 						else:
 							b.set_rot(2*PI - brl.get_rot())
 							b.scale(Vector2(-1,1))
-							b.set_pos(Vector2(pos[0] + cos(b.get_rot()) * -100, pos[1] + sin(b.get_rot())*100))
+							b.set_pos(Vector2(pos[0] + cos(b.get_rot()) * -120, pos[1] + sin(b.get_rot())*120))
 						#get_parent().add_child(b)
 						debounce_fire = 0
 						cooldown_timer = 0
@@ -97,8 +97,8 @@ func _ready():
 	player_node = get_node("Player")
 	gun = load("res://gun.tscn").instance()
 	player_node.add_child(gun)
-	gun.translate(Vector2(80,0))
-	gun.scale(Vector2(1.5,1.5))
+	gun.translate(Vector2(150,-100))
+	gun.scale(Vector2(1,1))
 	player_animation = get_node("Player/AnimationPlayer")
 
 func hit():
