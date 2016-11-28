@@ -40,7 +40,7 @@ extents = Vector2( 127.763, 58.4614 )
 
 [node name="gun" type="Node2D"]
 
-transform/pos = Vector2( 522.3, 436.2 )
+transform/pos = Vector2( 572.3, 486.2 )
 script/script = SubResource( 1 )
 
 [node name="gun_base" type="Area2D" parent="."]

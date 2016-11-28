@@ -26,7 +26,7 @@ func _ready():
 	# Initialization here
 	set_fixed_process(true)
 	body_sprite = get_node("Body")
-	gun = load("res://gun.tscn").instance()
+	gun = load("res://gun_old.tscn").instance()
 	body_sprite.add_child(gun)
 	gun.set_pos(Vector2(0,0))
 	gun.translate(Vector2(80,0))

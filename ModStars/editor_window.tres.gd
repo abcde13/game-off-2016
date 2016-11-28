@@ -11,10 +11,20 @@ var invalid = true
 var current_attachment
 
 func _ready():
-	gun = get_node("gun")
+	if (global.level == 1):
+		gun = get_node("gun")
+	else:
+		remove_child(get_node("gun"))
+		gun = load("res://gun_new.tscn").instance()
+		add_child(gun)
+		gun.translate(Vector2(50,50))
 	gun_base = get_node("gun/gun_base")
 	gun_base.connect("input_event", self, "select_attachment")
 	set_process(true)
+	var packed_scene = PackedScene.new()
+	gun.set_scale(Vector2(1,1))
+	packed_scene.pack(gun)
+	ResourceSaver.save("res://gun_old.tscn", packed_scene)
 
 	
 func _process(delta):
@@ -112,5 +122,5 @@ func next_level():
 	var packed_scene = PackedScene.new()
 	gun.set_scale(Vector2(1,1))
 	packed_scene.pack(gun)
-	ResourceSaver.save("res://gun.tscn", packed_scene)
+	ResourceSaver.save("res://gun_new.tscn", packed_scene)
 	get_tree().change_scene("res://tilemap.tscn")

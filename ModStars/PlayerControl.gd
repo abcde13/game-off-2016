@@ -95,7 +95,7 @@ func _fixed_process(delta):
 func _ready():
 	set_fixed_process(true)
 	player_node = get_node("Player")
-	gun = load("res://gun.tscn").instance()
+	gun = load("res://gun_new.tscn").instance()
 	player_node.add_child(gun)
 	gun.set_pos(Vector2(0,0))
 	gun.translate(Vector2(80,0))
