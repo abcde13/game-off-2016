@@ -15,13 +15,17 @@ var time = 0
 var idle = true
 var bullet = preload("res://Bullet.tscn")
 var barrel = preload("res://barrel.gd")
+var flash = preload("res://MuzzleFlash.tex")
 var debounce_fire = 0
 var cooldown_timer = 0
 var facing_right = true
 var health = 5
 var gun
+var flashes = []
 
 func _fixed_process(delta):
+	for f in flashes:
+		get_parent().remove_child(f)
 	cooldown_timer += delta
 	if(time > 2 && idle):
 		player_animation.play("Idle")
@@ -53,22 +57,31 @@ func _fixed_process(delta):
 						var b = bullet.instance()
 						
 						b.set_dir(facing_right)
+						var muzzle_flash = Sprite.new()
+						muzzle_flash.set_texture(flash)
+						muzzle_flash.scale(Vector2(0.4,0.4)) 
+						
 						
 						var pos = brl.get_global_pos()
-						print(b.get_rot())
-						print(cos(b.get_rot())* 100)
-						print(sin(b.get_rot()) * 100)
+			
 						get_parent().add_child(b)
+						get_parent().add_child(muzzle_flash)
 						if(facing_right):
+							muzzle_flash.set_rot(brl.get_rot())
+							muzzle_flash.set_pos(Vector2(pos[0] + cos(muzzle_flash.get_rot()) * 30, pos[1] + sin(muzzle_flash.get_rot())*-30))
 							b.set_rot(brl.get_rot())
 							b.set_pos(Vector2(pos[0] + cos(b.get_rot()) * 120, pos[1] + sin(b.get_rot())*-120))
 						else:
+							muzzle_flash.set_rot(2*PI - brl.get_rot())
+							muzzle_flash.scale(Vector2(-1,1))
+							muzzle_flash.set_pos(Vector2(pos[0] + cos(muzzle_flash.get_rot()) * -30, pos[1] + sin(muzzle_flash.get_rot())*30))
 							b.set_rot(2*PI - brl.get_rot())
 							b.scale(Vector2(-1,1))
 							b.set_pos(Vector2(pos[0] + cos(b.get_rot()) * -120, pos[1] + sin(b.get_rot())*120))
 						#get_parent().add_child(b)
 						debounce_fire = 0
 						cooldown_timer = 0
+						flashes.push_back(muzzle_flash)
 		
 	if(velocity.x != 0 || jumping):
 		idle = false
