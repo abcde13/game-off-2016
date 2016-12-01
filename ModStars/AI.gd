@@ -46,7 +46,7 @@ func _fixed_process(delta):
 	velocity.y += delta * GRAVITY
 	if(get_global_pos().y > 400):
 		hit()
-	if(!player.is_queued_for_deletion()):
+	if(player and !player.is_queued_for_deletion()):
 		if(check_sight()):
 			hunt_player()
 		else:

@@ -1,0 +1,7 @@
+Developers: Suchaaver Chahal, Joraaver Chahal
+
+Tileset Art: http://kenney.nl
+
+Muzzle Flash Art: Aech from OpenGameArt.org
+
+Background Art: Mobile Game Graphics, http://www.mobilegamegraphics.com
