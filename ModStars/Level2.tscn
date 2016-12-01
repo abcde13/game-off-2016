@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://Level.gd" type="Script" id=1]
+[ext_resource path="res://tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://AI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=5]
+
+[node name="Level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -655348, 0, -655346, 0, -655344, 0, -655342, 0, -655340, 0, -655338, 0, -655336, 2, -524264, 0, -524262, 2, -393186, 0, -327633, 1, -131077, 1, -131075, 2, -196573, 1, -196571, 0, -196569, 0, -196567, 0, -196565, 0, -196563, 0, -196561, 0, -7, 1, -5, 0, -3, 0, -1, 0, -65535, 0, -65533, 0, -65531, 0, -65529, 0, -65527, 2, -65523, 1, -65521, 0, -65519, 0, -65517, 2, -65503, 1, -65501, 0, 131061, 0, 131063, 0, 131065, 0, 131067, 0, 65545, 0, 65549, 0, 65555, 0, 65557, 0, 65559, 0, 65561, 0, 65563, 0, 65565, 0, 65567, 0, 65569, 0, 65571, 0 )
+
+[node name="AI_Group" type="Node2D" parent="."]
+
+[node name="AI" parent="AI_Group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 922.965, -705.471 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="AI2" parent="AI_Group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1467.44, -45.7486 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="AI1" parent="AI_Group" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 19.395, -159.321 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -599.191, -47.8299 )
+transform/scale = Vector2( 0.2, 0.2 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+transform/pos = Vector2( -66.0001, -1926 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 2, 2 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 5 )]
+
+

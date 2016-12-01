@@ -43,11 +43,14 @@ func _fixed_process(delta):
 	route_time += delta
 	fire_time += delta
 	velocity.y += delta * GRAVITY
-	if(check_sight()):
-		hunt_player()
-	else:
-		route(delta)
-	motion(delta)
+	if(get_global_pos().y > 400):
+		hit()
+	if(!player.is_queued_for_deletion()):
+		if(check_sight()):
+			hunt_player()
+		else:
+			route(delta)
+		motion(delta)
 	
 func route(delta):
 	if(route_time > 1):
@@ -76,7 +79,7 @@ func check_sight():
 	var space_state = get_world_2d().get_direct_space_state()
 	var result = space_state.intersect_ray( get_global_pos(), player.get_global_pos(), [ self ] )
 	return(not result.empty() && result.collider == player)
-		
+
 
 func hunt_player():
 	var dist_to_player_x = player.get_global_pos().x - get_global_pos().x
