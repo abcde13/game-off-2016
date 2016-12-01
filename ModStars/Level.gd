@@ -24,7 +24,7 @@ func _process(delta):
 	if(ai_count == 0):
 		global.level = global.level+1
 		if (global.level > 5):
-			get_tree.change_scene("res://win.tscn")
+			get_tree().change_scene("res://win.tscn")
 		else:
 			get_tree().change_scene("res://gun_editor.tscn")
 
