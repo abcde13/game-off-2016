@@ -26,6 +26,8 @@ var flashes = []
 func _fixed_process(delta):
 	for f in flashes:
 		get_parent().remove_child(f)
+		flashes.remove(flashes.find(f))
+		
 	cooldown_timer += delta
 	if(time > 2 && idle):
 		player_animation.play("Idle")

@@ -39,6 +39,7 @@ func _ready():
 func _fixed_process(delta):
 	for f in flashes:
 		get_parent().remove_child(f)
+		flashes.remove(flashes.find(f))
 	
 	route_time += delta
 	fire_time += delta
