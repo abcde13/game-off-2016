@@ -2,7 +2,7 @@
 
 In this platformer turned shmup, you shoot your robot enemies (though you are a robot too) with your trusty gun in each level. After completing a level, you can mod your gun. That is, you can add a new barrel that shoots projectiles in any direction, as long as your new barrel touches the surface of your current gun. The catch is that the enemies of the next level use your previous gun! Pretty quickly what is an easy platformer turns into a hectic bullet hell. Good luck!
 
-Get it on itch.io: LINK
+Get it on itch.io: https://elrel-studios.itch.io/modshot
 
 Made in the Godot Engine, which you can get here: https://godotengine.org/
 If you would like to view the game in engine, simple download the engine, import the "engine.cfg" file in the ModStars directory as a project in the engine, and you should be good to go. Hav fun!

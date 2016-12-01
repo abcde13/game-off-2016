@@ -40,6 +40,7 @@ func _fixed_process(delta):
 	for f in flashes:
 		get_parent().remove_child(f)
 		flashes.remove(flashes.find(f))
+		f.queue_free()
 	
 	route_time += delta
 	fire_time += delta
