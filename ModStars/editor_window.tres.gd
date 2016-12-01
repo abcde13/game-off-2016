@@ -123,4 +123,9 @@ func next_level():
 	gun.set_scale(Vector2(1,1))
 	packed_scene.pack(gun)
 	ResourceSaver.save("res://gun_new.tscn", packed_scene)
-	get_tree().change_scene("res://tilemap.tscn")
+	if(global.level == 1):
+		get_tree().change_scene("res://Level1.tscn")
+	elif(global.level == 2):
+		get_tree().change_scene("res://Level2.tscn")
+	elif(global.level == 3):
+		get_tree().change_scene("res://Level3.tscn")

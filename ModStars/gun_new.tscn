@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://gun_base.tex" type="Texture" id=1]
 [ext_resource path="res://barrel.tscn" type="PackedScene" id=2]
@@ -38,9 +38,14 @@ extents = Vector2( 127.763, 58.4614 )
 custom_solver_bias = 0.0
 extents = Vector2( 127.763, 58.4614 )
 
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 127.763, 58.4614 )
+
 [node name="gun" type="Node2D"]
 
-transform/pos = Vector2( 522.3, 436.2 )
+transform/pos = Vector2( 572.3, 486.2 )
 script/script = SubResource( 1 )
 
 [node name="gun_base" type="Area2D" parent="."]
@@ -96,8 +101,7 @@ script/script = ExtResource( 3 )
 
 [node name="barrel" type="Area2D" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -110.3, -142.2 )
-transform/rot = 140.375
+transform/pos = Vector2( 98.7, 0.799988 )
 transform/scale = Vector2( 0.636358, 0.636358 )
 input/pickable = true
 shapes/0/shape = SubResource( 6 )
@@ -109,13 +113,28 @@ linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 3 )
 
-[node name="@barrel@35" type="Area2D" parent="." instance=ExtResource( 2 )]
+[node name="@barrel@13" type="Area2D" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 79.7, 29.8 )
-transform/rot = -51.5662
+transform/pos = Vector2( -158.3, -94.2 )
+transform/rot = 180.482
 transform/scale = Vector2( 0.636358, 0.636358 )
 input/pickable = true
 shapes/0/shape = SubResource( 7 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 3 )
+
+[node name="@barrel@70" type="Area2D" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 26.7, -189.2 )
+transform/rot = 91.6732
+transform/scale = Vector2( 0.636358, 0.636358 )
+input/pickable = true
+shapes/0/shape = SubResource( 8 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = true
 gravity_vec = Vector2( 0, 1 )

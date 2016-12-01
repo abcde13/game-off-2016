@@ -106,6 +106,7 @@ func hit():
 	health = health-1;
 	if(health <= 0):
 		queue_free()
+	
 
 func get_name():
 	return "player"

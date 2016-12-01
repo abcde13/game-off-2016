@@ -20,7 +20,6 @@ func _process(delta):
 	
 	if(ai_count == 0):
 		global.level = global.level+1
-		print(global.level)
 		get_tree().change_scene("gun_editor.tscn")
 
 
