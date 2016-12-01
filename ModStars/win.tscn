@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Gasalt-Black2.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://main_menu_button.gd" type="Script" id=2]
+
+[node name="Container" type="Container"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1020.0
+margin/bottom = 684.0
+
+[node name="MenuButton" type="MenuButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 377.0
+margin/top = 483.0
+margin/right = 654.0
+margin/bottom = 604.0
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = false
+click_on_press = true
+enabled_focus_mode = 0
+shortcut = null
+text = "Main Menu"
+flat = false
+items = [  ]
+script/script = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+
+rect/scale = Vector2( 3, 3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 209.0
+margin/top = 94.0
+margin/right = 424.0
+margin/bottom = 140.0
+custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/default_color = Color( 0.202698, 0.960938, 0.214545, 1 )
+bbcode/enabled = false
+bbcode/bbcode = "YOU WIN !!!"
+visible_characters = -1
+
+[node name="RichTextLabel1" type="RichTextLabel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 140.0
+margin/top = 289.0
+margin/right = 923.0
+margin/bottom = 481.0
+custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode/enabled = false
+bbcode/bbcode = "Thanks for playing. We hope you enjoyed this short experience. Hopefully you didn\'t encounter too many bugs to get this far :)"
+visible_characters = -1
+
+
