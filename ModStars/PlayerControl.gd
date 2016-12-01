@@ -105,6 +105,9 @@ func _fixed_process(delta):
 		velocity = n.slide(velocity)
 		move(motion)
 		
+	if(get_global_pos().y > 400):
+		hit()
+		
 
 
 

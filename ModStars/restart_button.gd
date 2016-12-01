@@ -12,4 +12,8 @@ func _ready():
 
 
 func _pressed():
+	var dir = Directory.new()
+	dir.remove("res://gun_old.tscn")
+	dir.remove("res://gun_new.tscn")
+	global.level = 1
 	get_tree().change_scene("res://gun_editor.tscn")
