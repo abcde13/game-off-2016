@@ -59,7 +59,8 @@ func _fixed_process(delta):
 						b.set_dir(facing_right)
 						var muzzle_flash = Sprite.new()
 						muzzle_flash.set_texture(flash)
-						muzzle_flash.scale(Vector2(0.4,0.4)) 
+						muzzle_flash.scale(Vector2(.4,.4)) 
+						muzzle_flash.set_modulate(Color(.3,1,1.3))
 						
 						
 						var pos = brl.get_global_pos()
@@ -68,13 +69,13 @@ func _fixed_process(delta):
 						get_parent().add_child(muzzle_flash)
 						if(facing_right):
 							muzzle_flash.set_rot(brl.get_rot())
-							muzzle_flash.set_pos(Vector2(pos[0] + cos(muzzle_flash.get_rot()) * 30, pos[1] + sin(muzzle_flash.get_rot())*-30))
+							muzzle_flash.set_pos(Vector2(pos[0] + cos(muzzle_flash.get_rot()) * 70, pos[1] + sin(muzzle_flash.get_rot())*-70))
 							b.set_rot(brl.get_rot())
 							b.set_pos(Vector2(pos[0] + cos(b.get_rot()) * 120, pos[1] + sin(b.get_rot())*-120))
 						else:
 							muzzle_flash.set_rot(2*PI - brl.get_rot())
 							muzzle_flash.scale(Vector2(-1,1))
-							muzzle_flash.set_pos(Vector2(pos[0] + cos(muzzle_flash.get_rot()) * -30, pos[1] + sin(muzzle_flash.get_rot())*30))
+							muzzle_flash.set_pos(Vector2(pos[0] + cos(muzzle_flash.get_rot()) * -70, pos[1] + sin(muzzle_flash.get_rot())*70))
 							b.set_rot(2*PI - brl.get_rot())
 							b.scale(Vector2(-1,1))
 							b.set_pos(Vector2(pos[0] + cos(b.get_rot()) * -120, pos[1] + sin(b.get_rot())*120))

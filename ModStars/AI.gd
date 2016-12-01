@@ -17,6 +17,8 @@ var fire_time = 0
 var facing_right = true
 var bullet = preload("res://Bullet.tscn")
 var barrel = preload("res://barrel.gd")
+var flash = preload("res://MuzzleFlash.tex")
+var flashes = []
 
 
 onready var player = get_tree().get_root().get_node("Level/Player")
@@ -35,6 +37,9 @@ func _ready():
 
 	
 func _fixed_process(delta):
+	for f in flashes:
+		get_parent().remove_child(f)
+	
 	route_time += delta
 	fire_time += delta
 	velocity.y += delta * GRAVITY
@@ -108,18 +113,30 @@ func fire():
 			b.set_dir(facing_right)
 			
 			var pos = brl.get_global_pos()
-			print(b.get_rot())
-			print(cos(b.get_rot())* 100)
-			print(sin(b.get_rot()) * 100)
+			
+			var muzzle_flash = Sprite.new()
+			muzzle_flash.set_texture(flash)
+			muzzle_flash.scale(Vector2(.4,.4)) 
+			muzzle_flash.set_modulate(Color(.3,1,1.3))
+			
 			get_parent().add_child(b)
+			get_parent().add_child(muzzle_flash)
 			if(dir == 1):
+				muzzle_flash.set_rot(brl.get_rot())
+				muzzle_flash.set_pos(Vector2(pos[0] + cos(muzzle_flash.get_rot()) * 70, pos[1] + sin(muzzle_flash.get_rot())*-70))
+				
 				b.set_rot(brl.get_rot())
 				b.set_pos(Vector2(pos[0] + cos(b.get_rot()) * 100, pos[1] + sin(b.get_rot())*-100))
 			else:
+				muzzle_flash.set_rot(2*PI - brl.get_rot())
+				muzzle_flash.scale(Vector2(-1,1))
+				muzzle_flash.set_pos(Vector2(pos[0] + cos(muzzle_flash.get_rot()) * -70, pos[1] + sin(muzzle_flash.get_rot())*70))
+				
 				b.set_rot(2*PI - brl.get_rot())
 				b.scale(Vector2(-1,1))
 				b.set_pos(Vector2(pos[0] + cos(b.get_rot()) * -100, pos[1] + sin(b.get_rot())*100))
 			#get_parent().add_child(b)
+			flashes.push_back(muzzle_flash)
 	
 	
 		
