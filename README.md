@@ -5,6 +5,7 @@ In this platformer turned shmup, you shoot your robot enemies (though you are a 
 Get it on itch.io: LINK
 
 Made in the Godot Engine, which you can get here: https://godotengine.org/
+If you would like to view the game in engine, simple download the engine, import the "engine.cfg" file in the ModStars directory as a project in the engine, and you should be good to go. Hav fun!
 
 # GitHub Game Off 2016
 
