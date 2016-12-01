@@ -18,6 +18,10 @@ func _process(delta):
 	
 	ai_count = get_node("AI_Group").get_child_count()
 	
+	if(!has_node("Player")):
+		print("WHAHT AHAT")
+		get_tree().change_scene("res://game_over.tscn")
+	
 	if(ai_count == 0):
 		global.level = global.level+1
 		get_tree().change_scene("gun_editor.tscn")

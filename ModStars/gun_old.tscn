@@ -91,7 +91,8 @@ script/script = ExtResource( 3 )
 
 [node name="barrel" type="Area2D" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 5.70001, -47.2 )
+transform/pos = Vector2( -123.8, -30.2 )
+transform/rot = 180.482
 transform/scale = Vector2( 0.636358, 0.636358 )
 input/pickable = true
 shapes/0/shape = SubResource( 6 )

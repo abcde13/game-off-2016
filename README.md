@@ -1,3 +1,11 @@
+# MODStars
+
+In this platformer turned shmup, you shoot your robot enemies (though you are a robot too) with your trusty gun in each level. After completing a level, you can mod your gun. That is, you can add a new barrel that shoots projectiles in any direction, as long as your new barrel touches the surface of your current gun. The catch is that the enemies of the next level use your previous gun! Pretty quickly what is an easy platformer turns into a hectic bullet hell. Good luck!
+
+Get it on itch.io: LINK
+
+Made in the Godot Engine, which you can get here: https://godotengine.org/
+
 # GitHub Game Off 2016
 
 ![GitHub Game Off 2016 Theme is Hacking, Modding, or Augmenting](https://cloud.githubusercontent.com/assets/121322/19498019/d8827370-9543-11e6-82d8-6da822b6147b.png)

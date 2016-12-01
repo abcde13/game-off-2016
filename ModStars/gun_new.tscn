@@ -96,7 +96,8 @@ script/script = ExtResource( 3 )
 
 [node name="barrel" type="Area2D" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 5.70001, -47.2 )
+transform/pos = Vector2( -123.8, -30.2 )
+transform/rot = 180.482
 transform/scale = Vector2( 0.636358, 0.636358 )
 input/pickable = true
 shapes/0/shape = SubResource( 6 )
@@ -108,10 +109,9 @@ linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 3 )
 
-[node name="@barrel@149" type="Area2D" parent="." instance=ExtResource( 2 )]
+[node name="@barrel@72" type="Area2D" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( -160.3, 71.8 )
-transform/rot = 183.346
+transform/pos = Vector2( 61.7, 19.8 )
 transform/scale = Vector2( 0.636358, 0.636358 )
 input/pickable = true
 shapes/0/shape = SubResource( 7 )

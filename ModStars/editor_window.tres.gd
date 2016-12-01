@@ -55,28 +55,28 @@ func _process(delta):
 func do_input():
 	if (Input.is_action_pressed("SHIFT_UP")):
 		if(edit_mode == "MOVE"):
-			current_attachment.translate(Vector2(0,-1))
+			current_attachment.translate(Vector2(0,-1.5))
 		elif(edit_mode == "ROTATE"):
-			current_attachment.rotate(0.05)
+			current_attachment.rotate(0.07)
 		elif(edit_mode == "ZOOM"):
 			gun.scale(Vector2(1.1,1.1))
 	elif (Input.is_action_pressed("SHIFT_DOWN")):
 		if(edit_mode == "MOVE"):
-			current_attachment.translate(Vector2(0,1))
+			current_attachment.translate(Vector2(0,1.5))
 		elif(edit_mode == "ROTATE"):
-			current_attachment.rotate(-0.05)
+			current_attachment.rotate(-0.07)
 		elif(edit_mode == "ZOOM"):
 			gun.scale(Vector2(0.9,0.9))
 	elif (Input.is_action_pressed("SHIFT_LEFT")):
 		if(edit_mode == "MOVE"):
-			current_attachment.translate(Vector2(-1, 0))
+			current_attachment.translate(Vector2(-1.5, 0))
 		elif(edit_mode == "ROTATE"):
-			current_attachment.rotate(0.05)
+			current_attachment.rotate(0.07)
 	elif (Input.is_action_pressed("SHIFT_RIGHT")):
 		if(edit_mode == "MOVE"):
-			current_attachment.translate(Vector2(1, 0))
+			current_attachment.translate(Vector2(1.5, 0))
 		elif(edit_mode == "ROTATE"):
-			current_attachment.rotate(-0.05)
+			current_attachment.rotate(-0.07)
 	elif (Input.is_action_pressed("MOVE_MODE")):
 		edit_mode = "MOVE"
 	elif (Input.is_action_pressed("ROTATE_MODE")):

@@ -1,0 +1,104 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Gasalt-Black2.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://play_button.gd" type="Script" id=2]
+[ext_resource path="res://credits_button.gd" type="Script" id=3]
+[ext_resource path="res://Gasalt-Black.fnt" type="BitmapFont" id=4]
+
+[node name="VBoxContainer" type="Container"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 4.0
+margin/right = 1023.0
+margin/bottom = 748.0
+
+[node name="Button" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 381.0
+margin/top = 432.0
+margin/right = 654.0
+margin/bottom = 523.0
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Play"
+flat = false
+script/script = ExtResource( 2 )
+
+[node name="Button1" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 381.0
+margin/top = 562.0
+margin/right = 654.0
+margin/bottom = 653.0
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Credits"
+flat = false
+script/script = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+
+visibility/opacity = 0.634014
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 243.0
+margin/top = 187.0
+margin/right = 789.0
+margin/bottom = 226.0
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode/enabled = false
+bbcode/bbcode = "WASD or arrow keys to move, space to fire"
+visible_characters = -1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+
+rect/scale = Vector2( 3, 3 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 315.0
+margin/top = 51.0
+margin/right = 443.0
+margin/bottom = 85.0
+custom_fonts/normal_font = ExtResource( 4 )
+custom_colors/default_color = Color( 0.434144, 0.429688, 1, 1 )
+bbcode/enabled = false
+bbcode/bbcode = "MODStars"
+visible_characters = -1
+
+[node name="RichTextLabel1" type="RichTextLabel" parent="."]
+
+visibility/opacity = 0.634014
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 40.0
+margin/top = 306.0
+margin/right = 996.0
+margin/bottom = 345.0
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode/enabled = false
+bbcode/bbcode = "In the gun editor, arrow keys to operate, M to move, R to rotate, Z to zoom"
+visible_characters = -1
+
+
